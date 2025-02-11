@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+**Project Documentation: Personal Portfolio Website**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+This project is a **Personal Portfolio Website** built using **React.js** for the frontend and **Spring Boot** for the backend. The portfolio showcases my skills, experience, projects, and contact details in a structured and visually appealing manner.
 
-## Available Scripts
+## Technologies Used
+- **Frontend:** React.js, Bootstrap
+- **Backend:** Spring Boot (to be implemented)
+- **Deployment:** To be determined (Netlify, Vercel, or self-hosted)
 
-In the project directory, you can run:
+## Features
+- **Home Page:** Introduction and an overview of my work.
+- **About Page:** Detailed background, skills, and expertise.
+- **Experience Page:** Work history and achievements.
+- **Projects Page:** List of completed and ongoing projects with links to GitHub.
+- **Contact Page:** A form for users to reach out via email.
+- **Responsive Design:** Ensures a seamless experience across different devices.
 
-### `yarn start`
+## Project Structure
+```
+project-root/
+│── src/
+│   │── components/
+│   │   │── Home.js
+│   │   │── About.js
+│   │   │── Experience.js
+│   │   │── Projects.js
+│   │   │── Contact.js
+│   │── assets/
+│   │── App.js
+│   │── index.js
+│── public/
+│── package.json
+│── README.md
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Component Details
+### Home.js
+- Displays a welcome message and an introduction.
+- Contains navigation links to other sections.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### About.js
+- Presents background information, skills, and expertise.
+- Includes an image of the developer.
 
-### `yarn test`
+### Experience.js
+- Lists professional experience, projects, and accomplishments.
+- Details web and app development experience, automation expertise.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Projects.js
+- Displays projects using Bootstrap cards.
+- Clicking on a card redirects to the corresponding GitHub repository.
 
-### `yarn build`
+### Contact.js
+- Contains a contact form with fields for Name, Email, and Message.
+- Includes a "Send Message" button.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Deployment Plan
+1. Complete frontend UI development.
+2. Implement backend API with Spring Boot.
+3. Integrate backend with frontend.
+4. Deploy the project on a hosting platform.
+5. Optimize for SEO and performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Future Enhancements
+- Add a blog section.
+- Implement user authentication for a more personalized experience.
+- Integrate backend for dynamic project updates.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This documentation provides a high-level overview of the portfolio project, detailing its structure and features. Let me know if you need modifications!
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
