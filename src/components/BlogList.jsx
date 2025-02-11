@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Container, Row, Col } from 'react-bootstrap';
+import BlogCard from './BlogCard';
 import blogs from '../data/blogs.json';
 
 function BlogList() {
@@ -10,14 +10,7 @@ function BlogList() {
       <Row>
         {blogs.map((blog) => (
           <Col md={4} className="mb-4" key={blog.id}>
-            <Card className="h-100">
-              <Card.Img variant="top" src={blog.image} />
-              <Card.Body>
-                <Card.Title>{blog.title}</Card.Title>
-                <Card.Text>{blog.shortDescription}</Card.Text>
-                <Link to={`/blog/${blog.id}`} className="btn btn-primary">Read More</Link>
-              </Card.Body>
-            </Card>
+            <BlogCard blog={blog} />
           </Col>
         ))}
       </Row>
