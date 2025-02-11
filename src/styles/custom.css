@@ -1,0 +1,21 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+  }
+  
+  h1, h2 {
+    font-weight: bold;
+  }
+  
+  .container {
+    max-width: 900px;
+  }
+  
+  footer {
+    background-color: #343a40;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+  }
+  
