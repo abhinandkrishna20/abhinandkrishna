@@ -16,6 +16,12 @@ function Header() {
             <Nav.Link as={Link} to="/projects">Projects</Nav.Link>
             <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
             <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
+            <div className="collapse navbar-collapse">
+                    <ul className="navbar-nav ms-auto">
+                        <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
+                        <li className="nav-item"><Link className="nav-link" to="/admin/blogs">Admin</Link></li>
+                    </ul>
+                </div>
           </Nav>
         </Navbar.Collapse>
       </Container>
