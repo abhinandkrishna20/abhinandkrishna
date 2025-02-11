@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "title": "How I Built My Portfolio",
+      "shortDescription": "A step-by-step guide on creating a developer portfolio.",
+      "image": "https://via.placeholder.com/300",
+      "content": "This blog explains how I built my portfolio using React and Spring Boot..."
+    },
+    {
+      "id": 2,
+      "title": "Learning RPA Automation",
+      "shortDescription": "My journey into RPA with UiPath and Python.",
+      "image": "https://via.placeholder.com/300",
+      "content": "RPA (Robotic Process Automation) is transforming how we automate tasks..."
+    }
+  ]
+  

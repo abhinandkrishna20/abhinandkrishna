@@ -8,6 +8,8 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/custom.css';
+import BlogList from './components/BlogList';
+import BlogDetail from './components/BlogDetail';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="/experience" element={<Experience />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<BlogList />} />
+        <Route path="/blog/:id" element={<BlogDetail />} />
         </Routes>
       </Layout>
     </Router>
