@@ -4,10 +4,10 @@ import { Container, Form, Button } from 'react-bootstrap';
 
 function Contact() {
   return (
-    <Container className="mt-5">
+    <Container className="mt-3">
       <h2>Contact Me</h2>
-      <Form>
-        <Form.Group controlId="formName">
+      <Form className='col-6'>
+        <Form.Group controlId="formName ">
           <Form.Label>Name</Form.Label>
           <Form.Control type="text" placeholder="Enter your name" />
         </Form.Group>
