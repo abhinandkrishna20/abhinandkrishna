@@ -39,5 +39,28 @@ public class BlogService {
         return blogRepository.existsById(id);
     }
 
+    // public Blog updateBlog(Long id, Blog updatedBlog) {
+    //     if (!blogRepository.existsById(id)) {
+    //         throw new RuntimeException("Blog with ID " + id + " not found!");
+    //     }
+    //     updatedBlog.setId(id);
+    //     return blogRepository.save(updatedBlog);
+    // }
+
+    // public Blog updateBlog(Long id, Blog blogDetails) {
+    //     return blogRepository.findById(id).map(blog -> {
+    //         blog.setTitle(blogDetails.getTitle());
+    //         blog.setContent(blogDetails.getContent());
+    //         return blogRepository.save(blog);
+    //     }).orElseThrow(() -> new RuntimeException("Blog with ID " + id + " not found!"));
+    // }
+    public Blog updateBlog(Long id, Blog blogDetails) {
+        return blogRepository.findById(id).map(blog -> {
+            blog.setTitle(blogDetails.getTitle());
+            blog.setContent(blogDetails.getContent());
+            blog.setAuthor(blogDetails.getAuthor()); // Ensure author is updated
+            return blogRepository.save(blog);
+        }).orElseThrow(() -> new RuntimeException("Blog with ID " + id + " not found!"));
+    }
     
 }
