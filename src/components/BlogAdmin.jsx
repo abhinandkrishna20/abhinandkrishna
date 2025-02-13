@@ -11,24 +11,29 @@ const BlogAdmin = () => {
         loadBlogs();
     }, []);
 
-    const loadBlogs = () => {
-        getAllBlogs().then(response => setBlogs(response.data));
+    const loadBlogs = async () => {
+        try {
+            const response = await getAllBlogs();
+            setBlogs(response.data);
+        } catch (error) {
+            console.error("Error fetching blogs:", error);
+        }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (editMode) {
-            updateBlog(currentId, blogData).then(() => {
+        try {
+            if (editMode) {
+                await updateBlog(currentId, blogData);
                 setEditMode(false);
                 setCurrentId(null);
-                setBlogData({ title: "", content: "", author: "" });
-                loadBlogs();
-            });
-        } else {
-            createBlog(blogData).then(() => {
-                setBlogData({ title: "", content: "", author: "" });
-                loadBlogs();
-            });
+            } else {
+                await createBlog(blogData);
+            }
+            setBlogData({ title: "", content: "", author: "" });
+            loadBlogs();
+        } catch (error) {
+            console.error("Error saving blog:", error);
         }
     };
 
@@ -38,8 +43,13 @@ const BlogAdmin = () => {
         setCurrentId(blog.id);
     };
 
-    const handleDelete = (id) => {
-        deleteBlog(id).then(() => loadBlogs());
+    const handleDelete = async (id) => {
+        try {
+            await deleteBlog(id);
+            loadBlogs();
+        } catch (error) {
+            console.error("Error deleting blog:", error);
+        }
     };
 
     return (
@@ -57,7 +67,9 @@ const BlogAdmin = () => {
             <ul className="list-group">
                 {blogs.map(blog => (
                     <li key={blog.id} className="list-group-item d-flex justify-content-between align-items-center">
-                        {blog.title} by {blog.author}
+                        <div>
+                            <strong>{blog.title}</strong> by {blog.author}
+                        </div>
                         <div>
                             <button onClick={() => handleEdit(blog)} className="btn btn-sm btn-warning me-2">Edit</button>
                             <button onClick={() => handleDelete(blog.id)} className="btn btn-sm btn-danger">Delete</button>

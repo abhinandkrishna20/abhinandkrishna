@@ -9,22 +9,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
-
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/blogs")
 @CrossOrigin(origins = "http://localhost:3000")
 public class BlogController {
+    
     @Autowired
     private BlogService blogService;
 
@@ -36,30 +27,28 @@ public class BlogController {
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Blog>> getBlogById(@PathVariable Long id) {
         Optional<Blog> blog = blogService.findById(id);
-        if (blog == null) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(blog);
+        return blog.isPresent() ? ResponseEntity.ok(blog) : ResponseEntity.notFound().build();
     }
 
     @PostMapping
-    public Blog createBlog(@RequestBody Blog blog) {
-        return blogService.saveBlog(blog);
+    public ResponseEntity<Blog> createBlog(@RequestBody Blog blog) {
+        Blog savedBlog = blogService.saveBlog(blog);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedBlog);
     }
 
     @DeleteMapping("/{id}")
-    public String deleteBlog(@PathVariable Long id) {
+    public ResponseEntity<String> deleteBlog(@PathVariable Long id) {
         blogService.deleteById(id);
-        return "Blog deleted successfully";
+        return ResponseEntity.ok("Blog deleted successfully");
     }
 
     @PutMapping("/{id}")
-public ResponseEntity<Blog> updateBlog(@PathVariable Long id, @RequestBody Blog blogDetails) {
-    try {
-        Blog updatedBlog = blogService.updateBlog(id, blogDetails,);
-        return ResponseEntity.ok(updatedBlog);
-    } catch (RuntimeException e) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+    public ResponseEntity<Blog> updateBlog(@PathVariable Long id, @RequestBody Blog blogDetails) {
+        try {
+            Blog updatedBlog = blogService.updateBlog(id, blogDetails);
+            return ResponseEntity.ok(updatedBlog);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
-}
 }
